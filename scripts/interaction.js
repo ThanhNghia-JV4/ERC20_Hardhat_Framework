@@ -384,18 +384,20 @@ const floppyAbi = [
 const floppyAddress = '0xee9f9b118e348d14822dbcA3F20352a182aD3256';
 
 myPrivateKey = process.env.PRIV_KEY;
-receiverAddress = ''; //dia chi metamask
+myAddress = "0xee9f9b118e348d14822dbcA3F20352a182aD3256s"
+receiverAddress = '0x319A1610890B8fBA9b57f7a21cD934cB6151c27D'; //dia chi metamask
 
 async function interact(){
-    web3 = await web3('https://data-seed-prebsc-1-s1.binance.org:8545/');
+    web3 = await web3('https://data-seed-prebsc-1-s1.binance.org:8545');
 
+    floppyContract = await new web3.eth.Contract(floppyAbi, floppyAddress);
     //call function from contract: 
     //Call ko lam thay doi du lieu cua blockchain thi ko tra phi gas
     //send tuong tac voi cac function lm thay doi stack cua blockchain nen phai tra phi gas
 
     //call 
-    myBalance = await floppyContract.methods.balanceOf(myAddress).call();
-    console.log(myBalance);
+    // myBalance = await floppyContract.methods.balanceOf(myAddress).call();
+    // console.log(myBalance);
 
     //send --> medify the state of the blockchain
     //transfer token
